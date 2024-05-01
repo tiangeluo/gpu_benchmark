@@ -1,10 +1,15 @@
 # gpu_benchmark
 
+script for running inference testing:
 ```
-# script for running inference testing
 torchrun --nproc_per_node 1 benchmark_llama3_inference.py \
     --ckpt_dir /home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-8B \
     --tokenizer_path /home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-8B/tokenizer.model \
+    --max_seq_len 128 --max_batch_size 4
+
+torchrun --nproc_per_node 8 benchmark_token_s.py \
+    --ckpt_dir /home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-70B \
+    --tokenizer_path /home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-70B/tokenizer.model \
     --max_seq_len 128 --max_batch_size 4
 ```
 
