@@ -24,7 +24,7 @@ tune run --nproc_per_node 4 full_finetune_distributed --config llama3/8B_full ch
 tune run --nproc_per_node 8 lora_finetune_distributed --config ./70B_lora.yaml checkpointer.checkpoint_dir='/home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-70b' tokenizer.path='/home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-70b/tokenizer.model' checkpointer.output_dir='./test' batch_siz
 e=8
 
-tune download meta-llama/Meta-Llama-3-70b --hf-token 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 --output-dir ./Meta-Llama-3-70b --ignore-patterns "original/consolidated*"
+tune download meta-llama/Meta-Llama-3-70b --hf-token xxx --output-dir ./Meta-Llama-3-70b --ignore-patterns "original/consolidated*"
 ```
 
 
