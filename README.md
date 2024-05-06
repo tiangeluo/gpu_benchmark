@@ -32,4 +32,12 @@ e=8
 tune download meta-llama/Meta-Llama-3-70b --hf-token xxx --output-dir ./Meta-Llama-3-70b --ignore-patterns "original/consolidated*"
 ```
 
+command for full-finetune Llama-3-8B models with single and 4 GPUs.
 
+```bash
+tune run full_finetune_single_device --config ./torchtune_configs/8B_full_single_device_wandb.yaml checkpointer.checkpoint_dir='/home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-8B' tokenizer.path='/home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-8B/tokenizer.model' checkpointer.output_dir='./test' batch_size=8
+
+tune run --nproc_per_node 4 full_finetune_distributed --config ./torchtune_configs/8B_full_wandb.yaml  checkpointer.checkpoint_dir='/home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-8B' tokenizer.path='/home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-8B/tokenizer.model' checkpointer.output_dir='./test' batch_size=8
+
+tune run --nproc_per_node 4 full_finetune_distributed --config ./torchtune_configs/8B_full_wandb_bs16.yaml  checkpointer.checkpoint_dir='/home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-8B' tokenizer.path='/home/tiangel/turbo/shared_datasets/Llama_weights/Meta-Llama-3-8B/tokenizer.model' checkpointer.output_dir='./test' batch_size=16
+```
