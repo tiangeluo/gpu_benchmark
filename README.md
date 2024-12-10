@@ -1,7 +1,7 @@
 # gpu_benchmark
 
 ### ollama model
-Please first install [ollama](https://ollama.com/download/linux): `curl -fsSL https://ollama.com/install.sh | sh`. Then, download the target model ckpt. For example, run `ollama run llama3.1:405b-text-q4_K_M` to download 405B-Q4-KM and then use the script `benchmark_llama31_xxx_ollama.py` to test.
+Please first install [ollama](https://ollama.com/download/linux): `curl -fsSL https://ollama.com/install.sh | sh`. Then, download the target model ckpt. For example, run `ollama run llama3.1:405b-text-q4_K_M` to download 405B-Q4-KM and then use the script `benchmark_llama31_405_ollama.py` to test. By changing the model config inside the code (Line 215~219), you can test with different models, such as llama-70b and mistral-large. 
 
 ### 405B Q4
 Please first download model from https://huggingface.co/hugging-quants/Meta-Llama-3.1-405B-Instruct-AWQ-INT4 and then run `benchmark_llama31_405Q4.py`. You need to install `torch transformers autoawq accelerate` based on your CUDA version.
